@@ -1,0 +1,29 @@
+# kubernetes/apps/it-tools/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: it-tools
+  labels:
+    app: it-tools
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: it-tools
+  template:
+    metadata:
+      labels:
+        app: it-tools
+    spec:
+      containers:
+        - name: it-tools
+          image: ghcr.io/CorentinTh/it-tools:latest
+          ports:
+            - containerPort: 80
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
