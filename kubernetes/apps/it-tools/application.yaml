@@ -9,6 +9,9 @@ spec:
     chart: app-template
     targetRevision: 3.6.1
     repoURL: oci://ghcr.io/bjw-s/helm
+    helm:
+      secretRef:
+        name: helm-credentials
   destination:
     server: https://kubernetes.default.svc
     namespace: default
