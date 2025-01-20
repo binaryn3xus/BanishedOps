@@ -6,7 +6,7 @@ metadata:
 spec:
   generators:
     - git:
-        repoURL: https://github.com/binaryn3xus/BanishedOps
+        repoURL: https://github.com/binaryn3xus/banishedops
         revision: HEAD
         directories:
           - path: kubernetes/apps/*
@@ -16,7 +16,7 @@ spec:
     spec:
       project: applications
       source:
-        repoURL: https://github.com/binaryn3xus/BanishedOps
+        repoURL: https://github.com/binaryn3xus/banishedops
         targetRevision: HEAD
         path: '{{ path }}'
       destination:

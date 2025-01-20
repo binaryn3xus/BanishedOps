@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: it-tools
-          image: ghcr.io/CorentinTh/it-tools:latest
+          image: ghcr.io/corentinth/it-tools:latest
           ports:
             - containerPort: 80
           resources:
