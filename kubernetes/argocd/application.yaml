@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: banished-ops-applications
+  namespace: argocd
+spec:
+  generators:
+    - git:
+        repoURL: https://github.com/binaryn3xus/BanishedOps
+        revision: HEAD
+        directories:
+          - path: kubernetes/apps/*
+  template:
+    metadata:
+      name: '{{ path.basename }}'
+    spec:
+      project: applications
+      source:
+        repoURL: https://github.com/binaryn3xus/BanishedOps
+        targetRevision: HEAD
+        path: '{{ path }}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{ path.basename }}'
+      syncPolicy:
+        automated:
+          selfHeal: true
+          prune: true
